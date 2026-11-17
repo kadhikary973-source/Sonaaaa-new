@@ -1,0 +1,212 @@
+<!DOCTYPE html><html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sonaaa ❤️</title><style>
+*{box-sizing:border-box}
+
+body{
+margin:0;
+min-height:100vh;
+font-family:sans-serif;
+background:linear-gradient(135deg,#ff4b7d,#a855f7,#ff91b5);
+color:white;
+text-align:center;
+overflow-x:hidden;
+}
+
+.container{
+padding:30px 15px;
+min-height:100vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+}
+
+h1{
+font-size:40px;
+text-shadow:0 0 20px white;
+animation:glow 2s infinite alternate;
+}
+
+@keyframes glow{
+to{text-shadow:0 0 35px white,0 0 50px pink}
+}
+
+.envelope{
+position:relative;
+width:260px;
+height:175px;
+background:#ff1744;
+margin:50px auto 25px;
+border-radius:10px;
+box-shadow:0 15px 40px #68002e80;
+cursor:pointer;
+transition:transform .5s;
+}
+
+.envelope:hover{transform:scale(1.06)}
+
+.envelope:before{
+content:"";
+position:absolute;
+top:0;
+left:0;
+border-left:130px solid transparent;
+border-right:130px solid transparent;
+border-top:100px solid #ff809e;
+transform-origin:top;
+transition:transform .8s;
+z-index:3;
+}
+
+.envelope.open:before{
+transform:rotateX(180deg);
+}
+
+.envelope:after{
+content:"❤️";
+position:absolute;
+top:65px;
+left:110px;
+font-size:40px;
+z-index:4;
+}
+
+.letter{
+position:absolute;
+width:230px;
+height:145px;
+background:#fff0f5;
+color:#d41452;
+left:15px;
+top:10px;
+border-radius:10px;
+padding:15px;
+transition:transform 1s;
+z-index:1;
+overflow:auto;
+}
+
+.envelope.open .letter{
+transform:translateY(-150px);
+z-index:5;
+}
+
+button{
+border:none;
+padding:15px 25px;
+border-radius:30px;
+background:#ff1744;
+color:white;
+font-size:17px;
+font-weight:bold;
+box-shadow:0 5px 25px #ff1744;
+margin:12px;
+cursor:pointer;
+}
+
+button:active{transform:scale(.9)}
+
+#surprise{
+display:none;
+animation:show 1.5s ease;
+background:#ffffff30;
+backdrop-filter:blur(12px);
+border:1px solid #ffffff70;
+border-radius:25px;
+padding:20px;
+width:90%;
+max-width:350px;
+margin:20px auto;
+}
+
+@keyframes show{
+from{opacity:0;transform:scale(.5)}
+to{opacity:1;transform:scale(1)}
+}
+
+.photo{
+width:100%;
+max-width:260px;
+border-radius:20px;
+border:4px solid white;
+box-shadow:0 0 25px pink;
+}
+
+.floating{
+position:fixed;
+bottom:-50px;
+animation:float 5s linear forwards;
+pointer-events:none;
+z-index:10;
+}
+
+@keyframes float{
+to{
+transform:translateY(-110vh) rotate(360deg);
+opacity:0;
+}
+}
+
+.rose{
+font-size:55px;
+animation:rose 2s infinite alternate;
+}
+
+@keyframes rose{
+to{transform:scale(1.3) rotate(10deg)}
+}
+
+#message{
+line-height:2;
+font-size:17px;
+}
+
+</style></head><body><div class="container"><h1>Sonaaa ❤️</h1><p>তোমার জন্য ছোট্ট একটা Surprise 🥺💗</p><div class="rose">🌹</div><div class="envelope" id="env" onclick="openLetter()">
+<div class="letter">
+<h3>সোনা ❤️</h3>
+<p>তোমার জন্য একটা ছোট্ট চিঠি 💌</p>
+</div>
+</div><p>চিঠিটা খুলতে Envelope-এ ক্লিক করো 💌</p><button onclick="showSurprise()">
+🎁 Click For Surprise
+</button><div id="surprise"><h2>আমার Sonaaa 🥺❤️</h2><img src="Sona.jpg" class="photo"><div id="message">
+<p>
+এই সোনা, আমার উপর রাগ করে থেকো না।<br>
+আমি তোমাকে কষ্ট দিতে চাইনি।<br>
+তুমি আমার কাছে অনেক স্পেশাল।<br>
+তোমার হাসিটা আমার খুব প্রিয়।<br>
+প্লিজ আমার উপর রাগ ভাঙাও।<br>
+আর অভিমান করে থেকো না। ❤️
+</p><h2>Sorry Sonaaa 💗</h2>
+<p>অনেক অনেক ভালোবাসি তোমাকে। ❤️</p>
+</div></div></div><script>
+
+function openLetter(){
+document.getElementById("env").classList.toggle("open");
+}
+
+function createHeart(){
+let h=document.createElement("div");
+h.className="floating";
+h.innerHTML=["❤️","💗","💕","💖","🌸","✨","🌹"][Math.floor(Math.random()*7)];
+h.style.left=Math.random()*100+"%";
+h.style.fontSize=(20+Math.random()*30)+"px";
+document.body.appendChild(h);
+setTimeout(()=>h.remove(),5000);
+}
+
+function showSurprise(){
+document.getElementById("surprise").style.display="block";
+
+for(let i=0;i<45;i++){
+setTimeout(createHeart,i*70);
+}
+
+}
+
+setInterval(createHeart,700);
+
+</script></body>
+</html>
